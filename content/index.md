@@ -16,9 +16,11 @@ title: Graphics & PCG Knowledge Base
 
 > [!example] Shader Programming
 > *   [[01-Rendering/OctahedralMapping|🧊 八面体映射]]
+> *   [[01-Rendering/WaterWave|🌊 水面波形]]
 
 
 > [!info] Engine & Pipeline
+>  * Null
 
 
 ---
@@ -28,9 +30,11 @@ title: Graphics & PCG Knowledge Base
 利用算法构建世界：Houdini / UE5 PCG / Geometry Nodes。
 
 > [!tip] Algorithms & Logic
+>  * 
 
 
 > [!quote] Tools Workflow
+>  * 
 
 
 ---
@@ -39,13 +43,15 @@ title: Graphics & PCG Knowledge Base
 
 图形学的地基。
 
-
+> [!example] Math
+>  * 
 
 ---
 
 ## 🛠️ Optimization (性能优化)
 
-
+> [!info] Optimization
+>  * 
 
 ---
 
