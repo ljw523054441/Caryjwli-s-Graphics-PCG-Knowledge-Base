@@ -5,6 +5,7 @@ UE Shader系列文章
 1. [[UE4 Shader机制]]
 2. [[UE4 PSO Cache机制、使用与优化]]
 3. [[UE Shader变体内存和包体优化技巧]]
+4. [[优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
 
 本文简要记录UE4的Shader编译、加载、Cook、序列化机制，梳理其中关键的逻辑节点。出于篇幅考虑，下面的流程默认描述的是 MeshMaterialShader、CookByTheBook、ShaderCodeLibrary这一条路径。这也是我们平时接触最多，对性能影响最大的一条路径。其他类型的Shader、CookOnTheFly以及InlineCode的机制总体上也是类似的，基本上是下面流程的子集。
 

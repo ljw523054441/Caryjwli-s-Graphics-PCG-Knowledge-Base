@@ -5,8 +5,7 @@ UE Shader系列文章
 1. [[UE4 Shader机制]]
 2. [[UE4 PSO Cache机制、使用与优化]]
 3. [[UE Shader变体内存和包体优化技巧]]
-1. [[优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
-    
+4. [[优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
 
 本文讨论优化UE5的PSO卡顿的几个方案，简要介绍它们的实现机制，优缺点，并对比性能表现。
 

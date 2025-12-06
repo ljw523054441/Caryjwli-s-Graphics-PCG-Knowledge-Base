@@ -5,8 +5,7 @@ UE Shader系列文章
 1. [[UE4 Shader机制]]
 2. [[UE4 PSO Cache机制、使用与优化]]
 3. [[UE Shader变体内存和包体优化技巧]]
-1. [[优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
-    
+4. [[优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
 
 UE的Shader变体机制会缓存所有可能用到的Shader。对于大型移动端项目，最终进入包体的Shader可以达到数百MB，内存占用可以达到数十到上百MB。考虑到包体会影响安装率，而内存会占用影响OOM崩溃率，这个开销是很可观的。本文简要分析UE4的Shader变体来源和空间开销，并介绍几个常用优化技巧，包括利用引擎本身提供的剔除机制，和需要修改引擎源码来实现的进阶优化。
 
