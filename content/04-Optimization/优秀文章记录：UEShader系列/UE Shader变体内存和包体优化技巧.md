@@ -7,6 +7,7 @@ UE Shader系列文章
 3. [[UE Shader变体内存和包体优化技巧]]
 4. [[优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
 
+
 UE的Shader变体机制会缓存所有可能用到的Shader。对于大型移动端项目，最终进入包体的Shader可以达到数百MB，内存占用可以达到数十到上百MB。考虑到包体会影响安装率，而内存会占用影响OOM崩溃率，这个开销是很可观的。本文简要分析UE4的Shader变体来源和空间开销，并介绍几个常用优化技巧，包括利用引擎本身提供的剔除机制，和需要修改引擎源码来实现的进阶优化。
 
 本文讨论的Shader内存占用均是基于Shared或Native方式存储的。关于Shader Cook、ShaderLibrary、序列化和加载的机制，可以看我之前写的文章[[UE4 Shader机制]]。本文的API都是以老版本（4.21之前）的管线为例，因此会出现DrawingPolicy相关字样。如果你熟悉的是新管线，那么将其理解为为MeshProcessor就好。（关于新旧管线的区别，可以参考官方文档[Mesh Drawing Pipeline Conversion Guide for Unreal Engine 4.22](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Rendering/MeshDrawingPipeline/4_22_ConversionGuide/)）。总体而言，直到最新版本（UE5），Shader变体的核心机制并没有显著变化。
