@@ -51,10 +51,10 @@ title: Graphics & PCG Knowledge Base
 ## 🛠️ Optimization (性能优化)
 
 > [!info] Optimization
->  * [[04-Optimization/UEShader系列/UE4 Shader机制]]
->  * [[04-Optimization/UEShader系列/UE4 PSO Cache机制、使用与优化]]
->  * [[04-Optimization/UEShader系列/UE Shader变体内存和包体优化技巧]]
->  * [[04-Optimization/UEShader系列/UE4 Shader机制]]
+>  * [[UE4 Shader机制]]
+>  * [[UE4 PSO Cache机制、使用与优化]]
+>  * [[UE Shader变体内存和包体优化技巧]]
+>  * [[UE4 Shader机制]]
 
 ---
 

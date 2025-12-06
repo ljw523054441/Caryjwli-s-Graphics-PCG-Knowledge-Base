@@ -2,15 +2,15 @@
 
 UE Shader系列文章
 
-1. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE4 Shader机制]]
-2. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE4 PSO Cache机制、使用与优化]]
-3. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE Shader变体内存和包体优化技巧]]
-1. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
+1. [[UE4 Shader机制]]
+2. [[UE4 PSO Cache机制、使用与优化]]
+3. [[UE Shader变体内存和包体优化技巧]]
+1. [[优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
     
 
 UE的Shader变体机制会缓存所有可能用到的Shader。对于大型移动端项目，最终进入包体的Shader可以达到数百MB，内存占用可以达到数十到上百MB。考虑到包体会影响安装率，而内存会占用影响OOM崩溃率，这个开销是很可观的。本文简要分析UE4的Shader变体来源和空间开销，并介绍几个常用优化技巧，包括利用引擎本身提供的剔除机制，和需要修改引擎源码来实现的进阶优化。
 
-本文讨论的Shader内存占用均是基于Shared或Native方式存储的。关于Shader Cook、ShaderLibrary、序列化和加载的机制，可以看我之前写的文章[[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE4 Shader机制]]。本文的API都是以老版本（4.21之前）的管线为例，因此会出现DrawingPolicy相关字样。如果你熟悉的是新管线，那么将其理解为为MeshProcessor就好。（关于新旧管线的区别，可以参考官方文档[Mesh Drawing Pipeline Conversion Guide for Unreal Engine 4.22](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Rendering/MeshDrawingPipeline/4_22_ConversionGuide/)）。总体而言，直到最新版本（UE5），Shader变体的核心机制并没有显著变化。
+本文讨论的Shader内存占用均是基于Shared或Native方式存储的。关于Shader Cook、ShaderLibrary、序列化和加载的机制，可以看我之前写的文章[[UE4 Shader机制]]。本文的API都是以老版本（4.21之前）的管线为例，因此会出现DrawingPolicy相关字样。如果你熟悉的是新管线，那么将其理解为为MeshProcessor就好。（关于新旧管线的区别，可以参考官方文档[Mesh Drawing Pipeline Conversion Guide for Unreal Engine 4.22](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Rendering/MeshDrawingPipeline/4_22_ConversionGuide/)）。总体而言，直到最新版本（UE5），Shader变体的核心机制并没有显著变化。
 
 当我们谈及UE4的Shader时，大部分情况下其实是在谈论MeshMaterialShader这一类，也就是材质和材质实例使用的Shader。它们占了绝大部分的Shader空间。除此之外，常用的类型还包括GlobalShader、MaterialShader、NiagaraShader，但是其总数不多，这里不作讨论。
 
@@ -197,7 +197,7 @@ Metal的Shader被编译到一个单独的MetalLib文件后，默认不做进一�
 
 ### 5.4. 按场景剔除
 
-不同场景会使用不同材质，切换场景时，引擎会自动卸载不用的材质，但是材质触发编译的PSO（或glProgram）并不会释放。虽然有LRU机制控制总的材质数量，但是这里显然有更精细的处理方式。引擎高版本（如4.26）可以在录制PSO列表时指定和切换Mask，并且按需触发部分PSO编译的机制。从而，我们可以按场景来录制PSO，每个场景指定不同的Mask，随后在加载场景时再触发其对应PSO列表的编译，保证当前LRU中保存的都是最新的PSO，因此兼顾PSO效率和内存占用。这里的优化方法和效果可以见我的另一篇文章[[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE4 PSO Cache机制、使用与优化]]
+不同场景会使用不同材质，切换场景时，引擎会自动卸载不用的材质，但是材质触发编译的PSO（或glProgram）并不会释放。虽然有LRU机制控制总的材质数量，但是这里显然有更精细的处理方式。引擎高版本（如4.26）可以在录制PSO列表时指定和切换Mask，并且按需触发部分PSO编译的机制。从而，我们可以按场景来录制PSO，每个场景指定不同的Mask，随后在加载场景时再触发其对应PSO列表的编译，保证当前LRU中保存的都是最新的PSO，因此兼顾PSO效率和内存占用。这里的优化方法和效果可以见我的另一篇文章[[UE4 PSO Cache机制、使用与优化]]
 
 ### 5.5. 调整LRU参数
 

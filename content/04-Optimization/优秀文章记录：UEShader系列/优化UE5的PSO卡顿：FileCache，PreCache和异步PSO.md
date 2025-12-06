@@ -2,10 +2,10 @@
 
 UE Shader系列文章
 
-1. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE4 Shader机制]]
-2. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE4 PSO Cache机制、使用与优化]]
-3. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE Shader变体内存和包体优化技巧]]
-1. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
+1. [[UE4 Shader机制]]
+2. [[UE4 PSO Cache机制、使用与优化]]
+3. [[UE Shader变体内存和包体优化技巧]]
+1. [[优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
     
 
 本文讨论优化UE5的PSO卡顿的几个方案，简要介绍它们的实现机制，优缺点，并对比性能表现。
@@ -59,7 +59,7 @@ PS：D3D11的PSO无法显式地编译，而是由驱动在首次提交DrawCall�
 
 这套方案的基本逻辑是在游戏测试阶段收集所有遇到的PSO，存成列表。在用户手机上安装后，本地编译一遍这个列表。只要测试流程覆盖了所有的玩家流程，就可以消除绝大部分的卡顿。
 
-关于FileCache的使用方法、实现机制、性能优化，详见我的另一篇文章：[UE PSO Cache机制、使用与优化](https://zhuanlan.zhihu.com/p/681319390)。
+关于FileCache的使用方法、实现机制、性能优化，详见另一篇文章：[UE PSO Cache机制、使用与优化](https://zhuanlan.zhihu.com/p/681319390)。
 
 ### 2.2. 主要缺陷
 

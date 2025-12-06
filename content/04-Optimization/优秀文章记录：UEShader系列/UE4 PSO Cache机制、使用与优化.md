@@ -2,10 +2,10 @@
 
 UE Shader系列文章
 
-1. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE4 Shader机制]]
-2. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE4 PSO Cache机制、使用与优化]]
-3. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/UE Shader变体内存和包体优化技巧]]
-4. [[01学习笔记/01渲染相关/01材质基础/基础概念/UEShader系列/优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
+1. [[UE4 Shader机制]]
+2. [[UE4 PSO Cache机制、使用与优化]]
+3. [[UE Shader变体内存和包体优化技巧]]
+4. [[优化UE5的PSO卡顿：FileCache，PreCache和异步PSO]]
     
 
 我们知道DrawCall改变GPU的渲染状态时会带来开销。现代图形API（D3D12、Vulkan、Metal）提供PSO机制来减少硬件改变渲染状态的开销。其原理是把单次渲染所需要的Shader和渲染状态合并成一个对象，称为Pipeline State Object（PSO），由图形API解决各种硬件状态之间的依赖和冗余，给出最优的状态集合和设置方法（称为编译），再统一交给硬件设置渲染状态。
