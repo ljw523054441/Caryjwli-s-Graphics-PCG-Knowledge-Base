@@ -1,3 +1,7 @@
+---
+title: BillBoard in UE
+publish: true
+---
 局部坐标系在发生变化，将局部坐标系变为世界空间下的相机空间三个基向量所构成坐标系
 
 * 参考：[https://zhuanlan.zhihu.com/p/427484373](https://zhuanlan.zhihu.com/p/427484373)

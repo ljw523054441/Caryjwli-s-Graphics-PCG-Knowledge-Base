@@ -1,3 +1,7 @@
+---
+title: WaterWave
+publish: true
+---
 # GernsterWave
 ## 原版
 ```c++

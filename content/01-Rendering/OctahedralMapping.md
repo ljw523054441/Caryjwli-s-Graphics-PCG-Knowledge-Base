@@ -1,3 +1,7 @@
+---
+title: OctahedralMapping
+publish: true
+---
 # 原理
 ![[Pasted image 20250320163137.png]]
 
