@@ -1,5 +1,6 @@
 ---
 title: Graphics & PCG Knowledge Base
+publish: true
 ---
 
 # 🖥️ TechArt Repository
