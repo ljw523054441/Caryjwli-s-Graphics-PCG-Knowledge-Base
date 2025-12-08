@@ -1,3 +1,8 @@
+---
+title: UE4 Shader机制
+publish: false
+---
+
 丨 导语 本文简要记录UE4的Shader编译、加载、Cook、序列化机制。梳理其中关键的逻辑节点和API。
 
 UE Shader系列文章

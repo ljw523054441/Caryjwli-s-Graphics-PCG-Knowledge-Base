@@ -1,3 +1,8 @@
+---
+title: UE4 PSO Cache机制、使用与优化
+publish: false
+---
+
 丨 导语 现代图形API支持将渲染状态打包成PSO，并且缓存到磁盘或内存，能显著减少驱动级的卡顿。UE4原生支持PSO Cache，了解其原理可以帮助最大化它的效果。
 
 UE Shader系列文章

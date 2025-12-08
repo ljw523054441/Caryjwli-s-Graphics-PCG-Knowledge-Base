@@ -1,3 +1,9 @@
+---
+title: 优化UE5的PSO卡顿：FileCache，PreCache和异步PSO
+publish: false
+---
+
+
 丨 导语 UE5最新版本默认开启PreCache。本文对比测试了几种不同的PSO卡顿解决方案。
 
 UE Shader系列文章
